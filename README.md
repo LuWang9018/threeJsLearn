@@ -15,3 +15,6 @@ Files included:
 
     Exercise2:
         Mars - basic ThreeJS animiation
+
+    threeJsLearn2:
+        Custom geometry and butterfly exercise
