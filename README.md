@@ -1,6 +1,7 @@
-# threeKitLearn
+# threeJsLearn
 
-Course is from `https://www.udemy.com/3d-programming-with-javascript-and-the-threejs-3d-library/learn/v4/t/lecture/10731248?start=0`
+Course is from
+`https://www.udemy.com/3d-programming-with-javascript-and-the-threejs-3d-library/learn/v4/t/lecture/10731248?start=0`
 
 change the coure from JS to ReactJS
 
