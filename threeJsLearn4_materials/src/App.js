@@ -142,8 +142,8 @@ class App extends Component {
     this.sphere1.position.y = 0;
     this.sphere2.position.x = -1.5;
     this.sphere2.position.y = 0;
-    this.sphere3.position.x = 1.5;
-    this.sphere3.position.y = 0;
+    this.sphere2.position.x = -1.5;
+    this.sphere2.position.y = 0;
     this.partiles.position.x = 1.5;
     this.partiles.position.y = 2.9;
     //ADD Plane
