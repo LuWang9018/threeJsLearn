@@ -28,6 +28,13 @@ class App extends Component {
     this.axes = new THREE.AxesHelper(5);
     this.scene.add(this.axes);
 
+    //ADD light
+    this.directionalLightUp = new THREE.DirectionalLight(0xffffff);
+    this.scene.add(this.directionalLightUp);
+    //this.directionalLightUp.position = new THREE.Vector3(0, 1, 0);
+    //ADD sphere
+    let sphereGeometry = new THREE.SphereGeometry(0.5, 20, 20);
+
     //ADD CUBE
     let cubeGeometry = new THREE.BoxGeometry(1, 1, 1);
     let cubeGeometry2 = new THREE.BoxGeometry(1, 1, 1);
@@ -70,10 +77,43 @@ class App extends Component {
       size: 0.2,
     });
 
+    //Lanbert Material
+    const LambertMaterial = new THREE.MeshLambertMaterial({
+      side: THREE.DoubleSide,
+      color: 0x7fc5f9,
+      emissive: 0x25673d,
+      emissiveIntensity: 0.5,
+    });
+
+    //Meshpong Material
+    const MeshpongMaterial = new THREE.MeshPhongMaterial({
+      side: THREE.DoubleSide,
+      color: 0x7fc5f9,
+      emissive: 0x25673d,
+      emissiveIntensity: 0.5,
+      shininess: 100,
+      specular: 0x9d0a00,
+    });
+
+    //standard Material
+    const StandardMaterial = new THREE.MeshStandardMaterial({
+      side: THREE.DoubleSide,
+      color: 0x7fc5f9,
+      emissive: 0x25673d,
+      emissiveIntensity: 0.4,
+      metalness: 1,
+      roughness: 0.6,
+    });
+
     this.cube1 = new THREE.Mesh(cubeGeometry, cubeMaterial1);
     this.cube2 = new THREE.Line(cubeGeometry2, LineBasicMaterial);
     this.cube3 = new THREE.Line(cubeGeometry2, LineDashedMaterial);
     this.cube4 = new THREE.Points(cubeGeometry2, PointMaterial);
+    this.cube5 = new THREE.Mesh(cubeGeometry, LambertMaterial);
+    this.sphere1 = new THREE.Mesh(sphereGeometry, MeshpongMaterial);
+    this.sphere2 = new THREE.Mesh(sphereGeometry, StandardMaterial);
+    this.sphere3 = new THREE.Mesh(sphereGeometry, LambertMaterial);
+
     this.partiles = new THREE.Points(this.particlesGeometry, PointMaterial);
     this.cube3.computeLineDistances();
 
@@ -82,15 +122,30 @@ class App extends Component {
     this.scene.add(this.cube2);
     this.scene.add(this.cube3);
     this.scene.add(this.cube4);
+    this.scene.add(this.cube5);
+    this.scene.add(this.sphere1);
+    this.scene.add(this.sphere2);
+    this.scene.add(this.sphere3);
+
     this.scene.add(this.cube1Normal);
     this.scene.add(this.partiles);
 
+    this.cube1.position.y = 1.5;
     this.cube2.position.x = -1.5;
+    this.cube2.position.y = 1.5;
     this.cube3.position.x = -1.5;
-    this.cube3.position.y = 2;
-    this.cube4.position.y = 2;
+    this.cube3.position.y = 2.9;
+    this.cube4.position.y = 2.9;
+    this.cube5.position.x = 1.5;
+    this.cube5.position.y = 1.5;
+    this.sphere1.position.x = 0;
+    this.sphere1.position.y = 0;
+    this.sphere2.position.x = -1.5;
+    this.sphere2.position.y = 0;
+    this.sphere3.position.x = 1.5;
+    this.sphere3.position.y = 0;
     this.partiles.position.x = 1.5;
-    this.partiles.position.y = 2;
+    this.partiles.position.y = 2.9;
     //ADD Plane
     const planeGeomerty = new THREE.PlaneGeometry(100, 100, 0.1, 0.1);
     const planeMaterial = new THREE.MeshDepthMaterial();
@@ -125,6 +180,9 @@ class App extends Component {
     this.cube2.rotation.y += 0.01;
     this.cube3.rotation.y += 0.01;
     this.cube4.rotation.y += 0.01;
+    this.cube5.rotation.x += 0.01;
+    this.cube5.rotation.y += 0.01;
+
     this.partiles.rotation.y += 0.01;
 
     for (let i = 0; i < 100; i++) {

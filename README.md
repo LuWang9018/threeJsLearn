@@ -18,3 +18,13 @@ Files included:
 
     threeJsLearn2:
         Custom geometry and butterfly exercise
+
+    threeJsLearn3:
+        Text Geometry
+
+    threeJsLearn4:
+        Differenet types of meterials which include:
+        Normal
+        Depth
+        Line
+        Point(particles)
